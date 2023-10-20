@@ -1,12 +1,11 @@
 # Windows keyboard layout switcher CLI
 ## The problem
 I love [helix](https://helix-editor.com). It is truly one of the editors of all time.
-But it has a slight problem: its controls are *english-only*. As a bilingual person,
-who sometimes leaves comments in non-english, this irritates me, as I have to do a
-shift+alt every time I use the other language.
+But it has a slight problem: the controls are *english-only*. As a bilingual person, this irritates me, as I have to press
+shift+alt like 3 times a second when trying to edit some non-english text.
 
 ## The solution
-Just make a simple to use CLI to switch languages and integrate it with
+Just make a simple to use CLI to switch keyboard layout and integrate it with
 [helix](https://helix-editor.com) by overriding mode switching keybindings to include
 calls to said CLI, like so:
 ```toml
