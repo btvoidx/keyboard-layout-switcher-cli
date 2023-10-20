@@ -27,7 +27,7 @@ O = [":sh lang set -f C:/Users/%username%/.hxlang", "open_above"]
 ## I want it too!
 Grab your favourite version of Go since 1.18 and run a
 ```
-go install github.com/btvoidx/language-switcher-cli
+go install github.com/btvoidx/keyboard-layout-switcher-cli
 ```
 The CLI will be installed as `lang.exe` into your **%GOPATH%/bin**.
 
