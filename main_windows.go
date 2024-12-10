@@ -81,7 +81,7 @@ var (
 
 	getKeyboardLayout  = user32.NewProc("GetKeyboardLayoutNameA")
 	loadKeyboardLayout = user32.NewProc("LoadKeyboardLayoutA")
-	sendMessage        = user32.NewProc("SendMessageA")
+	sendNotifyMessage  = user32.NewProc("SendNotifyMessageA")
 )
 
 func GetKeyboardLayout() (string, error) {
@@ -100,13 +100,13 @@ func GetKeyboardLayout() (string, error) {
 func SetKeyboardLayout(layout [8]byte) error {
 	locale, _, err := loadKeyboardLayout.Call(
 		uintptr(unsafe.Pointer(&layout[0])),
-		uintptr(1),
+		0x00000002&0x00000001,
 	)
 	if locale == 0 {
 		return err
 	}
 
-	if r, _, err := sendMessage.Call(
+	if r, _, err := sendNotifyMessage.Call(
 		0xffff, // Broadcast
 		0x0050, // change request
 		0,      // ??
